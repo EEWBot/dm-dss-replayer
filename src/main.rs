@@ -110,7 +110,7 @@ async fn handle_socket(mut socket: WebSocket) {
         );
         tokio::time::sleep(e.offset).await;
         socket
-            .send(Message::Text(e.content.to_owned()))
+            .send(Message::Text(e.content.to_owned().into()))
             .await
             .unwrap();
     }
